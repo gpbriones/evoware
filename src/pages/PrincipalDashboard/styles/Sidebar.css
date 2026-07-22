@@ -1,0 +1,16 @@
+.sidebar{
+    width:240px;
+    background:white;
+    border-right:1px solid #ddd;
+    padding:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar li{
+    margin:15px 0;
+    cursor:pointer;
+}

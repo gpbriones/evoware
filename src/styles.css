@@ -1,0 +1,34 @@
+:root {
+    /* #4ade80; verde fuerte */
+    --background-logo-color: #0e71d4;
+    --background-logo-color_2: #7da4f8;
+   /* --primary-color-suave: #1d4ed8; */
+    --primary-color-suave: #2563eb;
+    --primary-color-fuerte: #8da2da;
+    --secondary-color-fuerte: #4ade80;
+    --secondary-color-suave: #0d7234;
+    --text-color: #333333;
+    --background-color: #790857;
+     /*#020617;*/
+    --background-body-color: #8916af;
+    /*#0d7234*/
+    --body-color: #2563eb;
+    --body-color_2: #f8fafc;
+    --body-text-color: #1f1f2c;
+    --body-text-color_2: #7da4f8;
+    --botton_text_color_1: #f8fafc;
+    --botton_text_color_sub_1: #707e9c;
+    --background-botton-color: #0062ff;
+    --background-botton-sub-color: #537ab8;
+    --hero-badge-color: #0072f5;
+
+    --servicios-color: #af1616;
+
+    --lines_pso_color: rgba(2, 6, 255, 0.08);
+    --particles_pso_color: rgba(96,165,250,0.85);
+    --best_particle_pso_color: rgba(8, 119, 255, 0.85);
+
+    --color-shadow-items: rgba(11, 26, 231, 0.25);
+    --color-shadow-cards: rgba(11, 26, 231, 0.25);
+    --color-shadow-bottons: rgba(11, 26, 231, 0.25);
+}
