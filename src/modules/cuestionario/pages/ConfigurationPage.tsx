@@ -11,6 +11,7 @@ import {dashboardSummaryRequest} from "../../../pages/PrincipalDashboard/Dashboa
 import {estadisticaCuestionarioRequest} from "../services/EstadisticaCuestionarioService";
 
 import type {EstadisticaPregunta} from "../services/EstadisticaCuestionarioService";
+import  Header  from "../../../components/Header/Header";
 
 
 export default function ConfigurationPage() {
@@ -262,9 +263,9 @@ export default function ConfigurationPage() {
         
 
     return (
-
+          
         <div className="configuration-page">
-
+            <Header/>
 
             {/* ================================= */}
             {/* HEADER */}
@@ -275,7 +276,7 @@ export default function ConfigurationPage() {
                 <div>
 
                     <span className="configuration-rubro">
-                        📝 Cuestionarios
+                        
                     </span>
 
                     <h1>

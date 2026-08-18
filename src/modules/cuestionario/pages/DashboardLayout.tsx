@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 //g import "../../../styles/EvowareDashboard.css";
+import  Header  from "../../../components/Header/Header";
 
 export default function DashboardLayout({ children }: any) {
   //const [dark, setDark] = useState(false);
@@ -27,8 +28,9 @@ export default function DashboardLayout({ children }: any) {
   };*/
 
   return (
-    <div className="dashboard">
-      
+    
+    <div >
+      <Header/>
       {/* HEADER */}
       <header className="header">
         

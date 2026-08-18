@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import type { CSSProperties } from "react";
+import  Header  from "../../components/Header/Header";
 
 import DashboardSidebar from "./Sidebar/DashboardSidebar";
 import DashboardGrid from "./GridLayout/DashboardGrid";
 import "./styles/Dashboard.css";
-import { logOutRequest } from "../../services/LogoutService";
+
 import {dashboardRequest} from "./DashboardService/DashboardService";
 
 import type {DashboardItem} from "./DashboardService/DashboardService";
 
 export default function PrincipalDashboard() {
+
 
     // Todos los módulos que el usuario tiene disponibles
     const [availableWidgets, setAvailableWidgets] =
@@ -20,7 +20,7 @@ export default function PrincipalDashboard() {
     const [dashboardWidgets, setDashboardWidgets] =
         useState<DashboardItem[]>([]);
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     useEffect(() => {
         const loadDashboard = async () => {
             try {
@@ -80,36 +80,15 @@ export default function PrincipalDashboard() {
         );
     };
 
-    const handleLogout = async () => {
-        try {
-            const access_token =
-                localStorage.getItem("token") ?? "";
-            await logOutRequest({
-                deviceNumber: "WEB",
-                access_token
-            });
-            localStorage.removeItem("token");
-            navigate("/", {
-                replace: true
-            });
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
     return (
+        
         <div>
-            <button
-                style={logoutBtn}
-                onClick={handleLogout}
-            >
-                Cerrar sesión
-            </button>
+            <Header/>
             <div className="dashboard">
                 <DashboardSidebar
                     dashboardItems={availableWidgets}
                     onAddWidget={handleAddWidget}
-                />
+                />  
                 <DashboardGrid
                     widgets={dashboardWidgets}
                     onAddWidget={handleAddWidget}
@@ -120,13 +99,3 @@ export default function PrincipalDashboard() {
     );
 
 }
-
-const logoutBtn: CSSProperties = {
-    padding: "0.8rem 1.5rem",
-    background: "linear-gradient(135deg, #ef4444, #b91c1c)",
-    color: "white",
-    border: "none",
-    borderRadius: "12px",
-    fontWeight: 600,
-    cursor: "pointer",
-};

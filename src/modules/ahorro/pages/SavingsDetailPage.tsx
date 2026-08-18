@@ -4,14 +4,10 @@ import { resumenRequest } from "../../../services/PersonalService";
 import type { ResumenResponse } from "../../../services/PersonalService";
 import { usuarioAportacionRequest } from "../../../services/ResumenService";
 import type { UsuarioAportacionResponse } from "../../../services/ResumenService";
-import { logOutRequest } from "../../../services/LogoutService";
 import GoalModal from "../../../components/GoalModal";
-
-
-import { useNavigate } from "react-router-dom";
+import  Header  from "../../../components/Header/Header";
 
 export default function PersonalGoal() {
-  const navigate = useNavigate();
 
   const [data, setData] = useState<ResumenResponse | null>(null);
   const [aportaciones, setAportaciones] = useState<UsuarioAportacionResponse | null>(null);
@@ -103,22 +99,7 @@ export default function PersonalGoal() {
 }, []);
 
 
-  const handleLogout = async () => {
-  try {
-      const access_token = localStorage.getItem("token") ?? "";
-      await logOutRequest({
-        deviceNumber: "WEB", // o el device real si lo manejas
-        access_token,
-      });
-      // limpiar sesión
-      localStorage.removeItem("token");
-      // redirigir y limpiar ruta actual
-      navigate("/", { replace: true });
-
-  } catch (error) {
-    console.error("Error en logout:", error);
-  }
-};
+  
   const isMobile = window.innerWidth < 768;
 
   //condicion para modal
@@ -136,22 +117,10 @@ export default function PersonalGoal() {
     <section style={sectionStyle(isMobile)}>
       <div style={containerStyle}>
         
+       
         {/* HEADER */}
-        <div style={headerStyle(isMobile)}>
-          <div>
-            <h1 style={titleStyle(isMobile)}>
-              Hola {user.name}!
-            </h1>
-            <p style={{ opacity: 0.7 }}>
-              Detalles de tu caja de ahorro 2026.
-            </p>
-          </div>
-
-          <button style={logoutBtn} onClick={handleLogout}>
-            Cerrar sesión
-          </button>
-        </div>
-
+         <Header/>
+        
         {/* RESUMEN */}
         <div style={cardStyle}>
           <h2 style={{ opacity: 0.8 }}>Total acumulado</h2>
@@ -325,19 +294,9 @@ const containerStyle: CSSProperties = {
   margin: "0 auto",
 };
 
-const headerStyle = (isMobile: boolean): CSSProperties => ({
-  display: "flex",
-  flexDirection: isMobile ? "column" : "row",
-  justifyContent: "space-between",
-  alignItems: isMobile ? "flex-start" : "center",
-  marginBottom: "3rem",
-  gap: "1.5rem",
-});
 
-const titleStyle = (isMobile: boolean): CSSProperties => ({
-  fontSize: isMobile ? "2rem" : "2.5rem",
-  fontWeight: 800,
-});
+
+
 
 const cardStyle: CSSProperties = {
   background: "#1e293b",
@@ -398,12 +357,3 @@ const tdStyle: CSSProperties = {
   borderBottom: "1px solid #334155",
 };
 
-const logoutBtn: CSSProperties = {
-  padding: "0.8rem 1.5rem",
-  background: "linear-gradient(135deg, #ef4444, #b91c1c)",
-  color: "white",
-  border: "none",
-  borderRadius: "12px",
-  fontWeight: 600,
-  cursor: "pointer",
-};

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DashboardLayout from "./DashboardLayout";
 import "./Dashboard.css";
 
+
 export default function Home() {
   const BASE_URL_CUESTIONARIOS = import.meta.env.VITE_API_CUESTIONARIOS_URL;
   const navigate = useNavigate();
@@ -150,8 +151,8 @@ export default function Home() {
   
 
   return (
+   
   <DashboardLayout>
-
     {/* LOADER */}
     {loading && (
       <div className="modal-overlay">
