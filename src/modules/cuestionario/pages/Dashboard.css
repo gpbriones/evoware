@@ -1,0 +1,508 @@
+.header {
+  height: 60px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 🔥 magia */
+  padding: 0 20px;
+}
+
+/* IZQUIERDA */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* LOGO */
+.logo {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+/* BOTÓN MODERNO */
+.theme-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px; /* 🔥 pill shape */
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* HOVER */
+.theme-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.05);
+ 
+}
+
+/* CONTENEDOR PRINCIPAL */
+.dashboard {
+  display: flex;
+  /*flex-direction: column;*/
+  min-height: 100vh; /* 🔥 no bloquea contenido */
+   
+}
+
+/* CONTENIDO (debajo del header) */
+.content {
+  flex: 1;                 /* 🔥 ocupa el resto */
+  display: flex;
+  flex-direction: column;
+  overflow: auto;        /* 🔥 evita scroll */
+ 
+}
+
+/*Estilos de cuestionario*/
+
+/* =========================================================
+   CUESTIONARIO
+   ========================================================= */
+
+.cuestionario-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   INFORMACIÓN SUPERIOR
+   ========================================================= */
+
+.cuestionario-info {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    padding: 18px 22px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 4px solid #3b82f6;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+.cuestionario-info p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+   ========================================================= */
+
+.cuestionario-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+
+    padding: 30px;
+
+    background: white;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.cuestionario-title {
+    margin: 0 0 8px 0;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+.cuestionario-description {
+    margin: 0 0 28px 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   SECCIÓN
+   ========================================================= */
+
+.form-section-title {
+    margin: 0 0 18px 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.cuestionario-form {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px 20px;
+}
+
+
+/* =========================================================
+   CAMPO
+   ========================================================= */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS
+   ========================================================= */
+
+.questionnaire-input {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.questionnaire-input:hover {
+    border-color: #94a3b8;
+}
+
+.questionnaire-input:focus {
+    background: white;
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+}
+
+.questionnaire-input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   SECCIÓN DE DECISIÓN
+   ========================================================= */
+
+.molestias-section {
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.molestias-title {
+    margin: 0 0 6px 0;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+.molestias-description {
+    margin: 0 0 18px 0;
+
+    font-size: 13px;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   BOTONES DE DECISIÓN
+   ========================================================= */
+
+.molestias-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+.molestias-button {
+    min-height: 62px;
+
+    padding: 12px 18px;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.molestias-button:hover {
+    transform: translateY(-1px);
+}
+
+.molestias-button:active {
+    transform: translateY(0);
+}
+
+.molestias-si {
+    background: #fff7ed;
+    border-color: #fed7aa;
+    color: #c2410c;
+}
+
+.molestias-si:hover {
+    background: #ffedd5;
+    box-shadow: 0 5px 15px rgba(194, 65, 12, 0.12);
+}
+
+.molestias-no {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d;
+}
+
+.molestias-no:hover {
+    background: #dcfce7;
+    box-shadow: 0 5px 15px rgba(21, 128, 61, 0.12);
+}
+
+
+/* =========================================================
+   BOTÓN INFORMACIÓN MÓVIL
+   ========================================================= */
+
+.info-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #3b82f6;
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   MODALES
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.65);
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+}
+
+.modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 450px;
+    max-height: 80vh;
+
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    color: #1e293b;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+.modal h3 {
+    margin: 0 0 15px 0;
+
+    font-size: 20px;
+}
+
+.modal p {
+    margin: 0 0 15px 0;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    text-align: justify;
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 20px;
+
+    color: #64748b;
+
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #1e293b;
+}
+
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+.loader-box {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    color: #1e293b;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+
+    border: 4px solid #e2e8f0;
+    border-top-color: #3b82f6;
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .cuestionario-page {
+        padding: 15px;
+    }
+
+    .cuestionario-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .cuestionario-title {
+        font-size: 21px;
+    }
+
+    .cuestionario-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-field.full-width {
+        grid-column: auto;
+    }
+
+    .molestias-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .cuestionario-info {
+        padding: 15px;
+    }
+}

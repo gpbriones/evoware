@@ -1,0 +1,13 @@
+
+
+
+
+
+
+/* CONTENIDO (debajo del header) */
+.content {
+  flex: 1;                 /* 🔥 ocupa el resto */
+  display: flex;
+  flex-direction: column;
+  overflow: auto;        /* 🔥 evita scroll */
+}

@@ -3,3 +3,103 @@
     height:100vh;
     background:#f4f6f9;
 }
+
+.card-widget{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:15px;
+
+    height:100%;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.1);
+
+}
+
+
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+}
+
+
+
+.card-rubro{
+
+    font-size:.85rem;
+
+    color:#666;
+
+}
+
+
+
+.card-header h3{
+
+    margin:5px 0;
+
+}
+
+
+
+.btn-remove{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+
+
+.card-content{
+
+    height:120px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#777;
+
+}
+
+
+
+.card-actions{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.card-actions button{
+
+    padding:6px 12px;
+
+    border-radius:8px;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+

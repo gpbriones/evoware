@@ -121,7 +121,7 @@ body{
 }
 
 .auth-info p{
-    color:#0d7234;
+    /*color:#0d7234;*/
     font-size:18px;
     line-height:1.8;
     margin-bottom:36px;
@@ -164,7 +164,7 @@ body{
     flex-direction:column;
     gap:14px;
 
-    color:#0d7234;
+    /*color:#0d7234;*/
 }
 
 /* RIGHT */
@@ -192,7 +192,7 @@ body{
     border:
     1px solid rgba(255,255,255,0.06);
     backdrop-filter:blur(18px);
-     box-shadow: 0 20px 60px rgba(122, 230, 100, 0.25);
+     box-shadow: 0 20px 60px rgba(100, 102, 230, 0.25);
 }
 
 .auth-card h3{
@@ -201,7 +201,7 @@ body{
 }
 
 .auth-card p{
-    color:#0d7234;
+    /*color:#0d7234;*/
     margin-bottom:34px;
 }
 
@@ -221,7 +221,7 @@ body{
 
 .input-group label{
     font-size:14px;
-    color:#0d7234;
+    /*color:#0d7234;*/
 }
 
 .input-group input{
@@ -230,7 +230,7 @@ body{
     border:
     1px solid rgba(255,255,255,0.08);
     /*background:#0f172a;*/
-    color:#0d7234;
+    /*color:#0d7234;*/
     outline:none;
     transition:0.3s;
 }

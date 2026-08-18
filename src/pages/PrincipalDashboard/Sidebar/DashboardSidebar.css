@@ -1,0 +1,154 @@
+.widget-sidebar{
+
+    width:320px;
+
+    padding:20px;
+
+    background:#f8fafc;
+
+    border-right:1px solid #e2e8f0;
+
+    overflow-y:auto;
+    box-sizing:border-box;
+
+}
+
+.widget-title{
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.widget-item{
+
+    display:flex;
+
+    gap:15px;
+
+    padding:16px;
+
+    margin-bottom:15px;
+
+    background:white;
+
+    border-radius:18px;
+
+    cursor:grab;
+
+    transition:.25s;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.06);
+
+}
+
+.widget-item:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.12);
+
+}
+
+.widget-icon{
+
+    font-size:34px;
+
+}
+
+.widget-info{
+
+    flex:1;
+
+}
+
+.widget-info h4{
+
+    margin:0;
+
+}
+
+.widget-info span{
+
+    color:#2563eb;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+.widget-info p{
+
+    color:#64748b;
+
+    margin-top:8px;
+
+    font-size:.85rem;
+
+}
+
+/*Estilo para configuracion de boton de sidebar*/
+.sidebar-group {
+    width:100%;
+}
+
+
+.widget-sidebar .sidebar-group .sidebar-group-title {
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    width:100%;
+
+}
+
+.sidebar-group-name {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.sidebar-config-button{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:18px;
+
+}
+
+.sidebar-config-button:hover{
+
+    background:#e2e8f0;
+
+    transform:rotate(30deg);
+
+}
+
+

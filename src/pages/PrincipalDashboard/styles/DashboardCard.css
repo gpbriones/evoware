@@ -1,0 +1,165 @@
+.dashboard-card{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    border-radius:12px;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.dashboard-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.dashboard-card-description{
+    padding:12px;
+    color:#666;
+}
+
+.dashboard-card-summary{
+    flex:1;
+    padding:12px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+}
+
+/* botones de acciones */
+
+.card-actions {
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;   /* permite bajar botones a otra línea */
+
+    width:100%;
+
+}
+
+
+.card-actions button {
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:8px 14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:500;
+
+    transition:.2s ease;
+
+    flex:1 1 auto;  /* se adaptan al espacio disponible */
+
+    min-width:100px; /* evita botones demasiado pequeños */
+
+}
+
+
+.card-actions button:hover {
+    transform:translateY(-2px);
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* ---------------- */
+
+.modern-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    height:100%;
+    overflow:hidden; /* evita que algo se salga */
+}
+
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.15);
+}
+
+/**encabezado**/
+.card-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.card-rubro {
+    color:#64748b;
+    font-size:.85rem;
+}
+
+
+.card-header h3 {
+    margin-top:5px;
+    font-size:1.25rem;
+}
+
+
+/*indicadores de resumen*/
+.dashboard-summary {
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+
+.summary-row {
+
+    background:#f8fafc;
+
+    border-radius:14px;
+
+    padding:12px;
+
+}
+
+
+.summary-row span {
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:.8rem;
+
+}
+
+
+.summary-row strong {
+
+    font-size:1.2rem;
+
+}

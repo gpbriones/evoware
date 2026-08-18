@@ -14,3 +14,82 @@
     margin:15px 0;
     cursor:pointer;
 }
+
+.sidebar-group{
+    margin-bottom:1.2rem;
+}
+
+.sidebar-group-title{
+    font-weight:bold;
+    font-size:.95rem;
+    margin-bottom:.5rem;
+    color:#0f2b79;
+    border-bottom:1px solid #ddd;
+    padding-bottom:.3rem;
+}
+
+.sidebar-widget{
+    width:100%;
+    text-align:left;
+    margin-bottom:.4rem;
+}
+
+/*Estilo para configuracion de boton de sidebar*/
+.sidebar-group {
+    width:100%;
+}
+
+
+.widget-sidebar .sidebar-group .sidebar-group-title {
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    width:100%;
+
+}
+
+.sidebar-group-name {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.sidebar-config-button{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:18px;
+
+}
+
+.sidebar-config-button:hover{
+
+    background:#e2e8f0;
+
+    transform:rotate(30deg);
+
+}
+
+

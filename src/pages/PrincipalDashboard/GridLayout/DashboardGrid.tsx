@@ -1,133 +1,144 @@
 import { useEffect, useState } from "react";
 import GridLayout from "react-grid-layout";
-import WidgetRegistry from "../WidgetFactory/WidgetRegistry"
-/* npm uninstall @types/react-grid-layout */
-import type { DashboardWidget } from "../models/DashboardWidget";
 
+import type { DashboardItem } from "../DashboardService/DashboardService";
+import DashboardCard from "./DashboardCard";
 
 import "react-resizable/css/styles.css";
 import "react-grid-layout/css/styles.css";
+import { saveDashboardLayout} from "../DashboardService/DashboardLayoutService";
+
 
 interface DashboardGridProps {
-    widgets: string[];
-    onRemoveWidget: (id: string) => void;
-    }
+    widgets: DashboardItem[];
+    onAddWidget: (widget: DashboardItem)=>void;
+    onRemoveWidget: (id:number)=>void;
+}
+
+interface LayoutItem {
+    i:string;
+    x:number;
+    y:number;
+    w:number;
+    h:number;
+}
 
 export default function DashboardGrid({
-                         widgets: widgetIds,
-                         onRemoveWidget
-                            }: DashboardGridProps){
-    
-   /* const dashboardWidgets = [
-    {
-        id: "finanzas"
-    },
-    {
-        id: "dispositivos"
-    }
-    ];*/
+    widgets,
+    onAddWidget,
+    onRemoveWidget
+}:DashboardGridProps){
 
-    
+const [layout,setLayout] = useState<LayoutItem[]>([]);
 
- /*const dashboardWidgets: DashboardWidget[] =[
-        {
-            title: "Finanzas",
-            i:"finanzas",
-            x:0,
-            y:0,
-            w:4,
-            h:4
-        },
-        {
-            title: "Dispositivos",
-            i:"dispositivos",
-            x:4,
-            y:0,
-            w:4,
-            h:4
-        }
-    ];*/
-   /* const initialLayout: DashboardWidget[] = dashboardWidgets.map(widget => ({
-    title: widget.title,
-    i: widget.i,
-    x: widget.x,
-    y: widget.y,
-    w: widget.w,
-    h: widget.h
-    })
-);*/
-    const initialLayout: DashboardWidget[] = widgetIds.map((id, index) => ({
-            title: WidgetRegistry[id as keyof typeof WidgetRegistry].title,
-            i: id,
-            x: index * 4,
-            y: 0,
-            w: 4,
-            h: 4
-    }));
-
-    const [layout, setLayout] = useState<DashboardWidget[]>(initialLayout);
-
-
-            useEffect(() => {
-            setLayout(prevLayout =>
-                widgetIds.map((id, index) => {
-                    const previous = prevLayout.find(item => item.i === id);
-
-                    if (previous) {
-                        return previous;
-                    }
-
-                    return {
-                        title: WidgetRegistry[id as keyof typeof WidgetRegistry].title,
-                        i: id,
-                        x: index * 4,
-                        y: 0,
-                        w: 4,
-                        h: 4
-                    };
-                })
+useEffect(()=>{
+    console.log("Widgets recibidos en Grid:", widgets);
+    setLayout(prev => {
+        console.log("Layout anterior:", prev);
+        const nuevoLayout = [...prev];
+        widgets.forEach((widget)=>{
+            const existe = nuevoLayout.some(
+                item =>
+                item.i === widget.modulo.id.toString()
             );
-        }, [widgetIds]);
+                
+            if(!existe){
+                 console.log("Creando layout desde backend",{
+    id:widget.modulo.id,
+    x:widget.modulo.x,
+    y:widget.modulo.y,
+    w:widget.modulo.ancho_default,
+    h:widget.modulo.alto_default
+ });
+                nuevoLayout.push({
+                    i: widget.modulo.id.toString(),
+                    x: widget.modulo.x ?? 0,
+                    y: widget.modulo.y ?? 0,
+                    w: widget.modulo.ancho_default ?? 4,
+                    h: widget.modulo.alto_default ?? 4
+                });
+            }
+        });
+    return nuevoLayout;
+    });
+},[widgets]);
 
-    const handleLayoutChange = (newLayout: any) => {
+
+const handleSaveLayout = async (newLayout: LayoutItem[]) => {
     setLayout(newLayout);
-    console.log("hola newLayout...");
-    console.log(newLayout);
-    };
+    try {
+        const token = localStorage.getItem("token") ?? "";
+        await saveDashboardLayout({
+            access_token: token,
+            layoutDTOList: newLayout.map(item => ({
+                moduloId: Number(item.i),
+                x: item.x,
+                y: item.y,
+                w: item.w,
+                h: item.h
+            }))
+        });
+        console.log("Layout guardado");
+    } catch (error) {
+        console.error("Error guardando layout", error);
+    }
+};
 
 
-    return(
 
-        <div style={{flex:1,padding:20}}>
+/*const handleLayoutChange = (newLayout:LayoutItem[])=>{
+    setLayout(newLayout);
+    console.log("Nuevo layout",newLayout);
+    };*/
+
+
+    return (
+        <div style={{flex:1,padding:20}}
+             onDragOver={(e)=>e.preventDefault()}
+             onDrop={(e)=>{
+                const data =
+                    e.dataTransfer.getData(
+                        "widget"
+                    );
+                if(!data){
+                    return;
+                }
+
+                const widget: DashboardItem = JSON.parse(data);
+                console.log(
+                    "Widget agregado:",
+                    widget
+                );
+                onAddWidget(widget);
+            }}
+        >
             <GridLayout
                 className="layout"
                 layout={layout}
-                 cols={12}
+                cols={60}
                 rowHeight={60}
-                margin={[10, 10]}
-                
-                width={1200}
-                onLayoutChange={handleLayoutChange}
+                margin={[5,5]}
+                width={1800}
+                onLayoutChange={(layout) => setLayout(layout as LayoutItem[])}
+                onDragStop={(layout) => handleSaveLayout(layout as LayoutItem[])}
+                onResizeStop={(layout) => handleSaveLayout(layout as LayoutItem[])
+                }
             >
-
-                {layout.map(item => {
-                    const widget = WidgetRegistry[item.i as keyof typeof WidgetRegistry];
-                    const Component = widget.component;
-                    return (
-                                <div key={item.i} className="dashboard-widget">
-                                <div className="widget-header">
-                                <span>{widget.title}</span>
-                                <button
-                                    onClick={() => onRemoveWidget(item.i)}
-                                >
-                                    ✕
-                                </button>
-                                </div>
-                                <Component/>
-                                </div>
-                        );
-                        })}
+            {layout.map(item=>{const widget = widgets.find(w => w.modulo.id.toString() === item.i);
+                if(!widget){
+                    return null;
+                }
+                return (
+                <div key={item.i} className="dashboard-widget">
+                    <DashboardCard item={widget} onRemoveWidget={onRemoveWidget}/>
+                    </div>
+                    );
+                    })
+                    }
             </GridLayout>
+
+
         </div>
     );
+
 }

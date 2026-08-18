@@ -1,4 +1,4 @@
-import "../styles/WidgetCard.css";
+//g import "../styles/WidgetCard.css";
 
 interface WidgetCardProps {
   title: string;

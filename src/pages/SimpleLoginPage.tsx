@@ -100,12 +100,12 @@ export default function LoginPage() {
                 onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-3px)";
                 e.currentTarget.style.boxShadow =
-                    "0 12px 25px rgba(34,197,94,0.5)";
+                    "0 12px 25px rgba(34, 78, 197, 0.5)";
                 }}
                 onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0px)";
                 e.currentTarget.style.boxShadow =
-                    "0 8px 20px rgba(34,197,94,0.35)";
+                    "0 8px 20px rgba(34, 37, 197, 0.35)";
                 }}
             >
                 {isLogin ? "Entrar" : "Registrarme"}

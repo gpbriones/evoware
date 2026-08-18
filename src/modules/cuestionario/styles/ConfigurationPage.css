@@ -1,0 +1,462 @@
+.configuration-page {
+
+    padding:30px;
+
+    background:#f8fafc;
+
+    min-height:100%;
+
+    box-sizing:border-box;
+
+}
+
+
+/* HEADER */
+
+.configuration-header {
+
+    margin-bottom:30px;
+
+}
+
+.configuration-rubro {
+
+    color:#64748b;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+}
+
+.configuration-header h1 {
+
+    margin:6px 0;
+
+    font-size:1.8rem;
+
+}
+
+.configuration-header p {
+
+    margin:0;
+
+    color:#64748b;
+
+}
+
+
+/* SECCIONES */
+
+.configuration-section {
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    margin-bottom:24px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
+
+}
+
+.configuration-section h2 {
+
+    margin-top:0;
+
+    margin-bottom:20px;
+
+}
+
+
+/* RESUMEN */
+
+.configuration-summary {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:16px;
+
+}
+
+
+.configuration-stat {
+
+    padding:20px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+}
+
+
+.configuration-stat span {
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:.85rem;
+
+}
+
+
+.configuration-stat strong {
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:1.7rem;
+
+}
+
+
+/* GRÁFICA */
+
+.configuration-chart-placeholder {
+
+    min-height:220px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px dashed #e2e8f0;
+
+    border-radius:14px;
+
+    color:#64748b;
+
+}
+
+.configuration-chart-placeholder span {
+
+    font-size:40px;
+
+}
+
+
+/* HEADER DE SECCIÓN */
+
+.configuration-section-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.configuration-section-header button {
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#334155;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+/* TABLA */
+
+.configuration-table-wrapper {
+
+    overflow-x:auto;
+
+}
+
+.configuration-table-wrapper table {
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.configuration-table-wrapper th {
+
+    text-align:left;
+
+    padding:12px;
+
+    color:#64748b;
+
+    font-size:.85rem;
+
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+.configuration-table-wrapper td {
+
+    padding:14px 12px;
+
+    border-bottom:1px solid #f1f5f9;
+
+}
+
+
+/* ESTADOS */
+
+.status {
+
+    display:inline-block;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+}
+
+.status.completed {
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+.status.pending {
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+}
+
+/*estilo para grafica de participacion*/
+/* ==========================================
+   GRÁFICA DE DONA
+   ========================================== */
+
+.donut-chart-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex: 1;
+}
+
+
+/* Dona */
+
+.donut-chart {
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+/* Agujero central */
+
+.donut-center {
+
+    width: 115px;
+    height: 115px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.donut-center strong {
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+}
+
+
+.donut-center span {
+
+    color: #64748b;
+
+    font-size: .8rem;
+
+    margin-top: 5px;
+
+}
+
+
+/* Leyenda */
+
+.donut-legend {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+.donut-legend-item {
+
+    display: grid;
+
+    grid-template-columns:
+        14px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 150px;
+
+}
+
+
+.legend-color {
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+}
+
+
+.legend-color.completed {
+
+    background: #22c55e;
+
+}
+
+
+.legend-color.pending {
+
+    background: #f59e0b;
+
+}
+
+
+.donut-legend-item span:not(.legend-color) {
+
+    color: #475569;
+
+    font-size: .9rem;
+
+}
+
+
+.donut-legend-item strong {
+
+    font-size: 1rem;
+
+}
+
+/*Estilos para resultados de estadisticas*/
+.estadisticas-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.estadistica-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+.estadistica-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.estadistica-opcion {
+    margin-bottom: 16px;
+}
+
+.estadistica-opcion-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.estadistica-opcion-header strong {
+    font-weight: 700;
+}
+
+.estadistica-bar {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.estadistica-bar-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 10px;
+    transition: width .4s ease;
+}
+
+.estadistica-opcion small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+}
+
+.configuration-loading,
+.configuration-empty {
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+}
+
+@media (max-width: 900px) {
+
+    .estadisticas-container {
+        grid-template-columns: 1fr;
+    }
+
+}
