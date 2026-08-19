@@ -4,9 +4,9 @@
 
     padding:20px;
 
-    background:#f8fafc;
+    background:#fcf9f8;
 
-    border-right:1px solid #e2e8f0;
+    border-right:1px solid #f0e4e2;
 
     overflow-y:auto;
     box-sizing:border-box;
@@ -14,7 +14,7 @@
 }
 
 .widget-title{
-
+    
     font-size:1.3rem;
 
     font-weight:700;
@@ -23,28 +23,7 @@
 
 }
 
-.widget-item{
 
-    display:flex;
-
-    gap:15px;
-
-    padding:16px;
-
-    margin-bottom:15px;
-
-    background:white;
-
-    border-radius:18px;
-
-    cursor:grab;
-
-    transition:.25s;
-
-    box-shadow:
-        0 6px 18px rgba(0,0,0,.06);
-
-}
 
 .widget-item:hover{
 
@@ -84,13 +63,9 @@
 }
 
 .widget-info p{
-
-    color:#64748b;
-
+    color:var(--text-primary);
     margin-top:8px;
-
     font-size:.85rem;
-
 }
 
 /*Estilo para configuracion de boton de sidebar*/
@@ -125,7 +100,7 @@
 
 .sidebar-config-button{
 
-    width:32px;
+    /*width:32px;*/
 
     height:32px;
 
@@ -133,7 +108,7 @@
 
     border-radius:50%;
 
-    background:transparent;
+    /*background:white;*/
 
     cursor:pointer;
 
@@ -145,7 +120,7 @@
 
 .sidebar-config-button:hover{
 
-    background:#e2e8f0;
+   /* background:#f0e6e2;*/
 
     transform:rotate(30deg);
 

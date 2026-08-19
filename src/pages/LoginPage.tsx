@@ -12,7 +12,7 @@ export default function LoginPage() {
   const usernameFromCard = params.get("username") || "";
 
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin] = useState(true);
   const [form, setForm] = useState({
     username: usernameFromCard,
     tel: "",
@@ -199,26 +199,4 @@ export default function LoginPage() {
   );
 }
 
-const inputStyle = {
-  padding: "0.9rem",
-  borderRadius: "10px",
-  border: "1px solid #334155",
-  backgroundColor: "#0f172a",
-  color: "white",
-  fontSize: "1rem",
-  outline: "none",
-  transition: "all 0.3s ease",
-};
 
-const primaryBtn = {
-  padding: "0.9rem",
-  background: "linear-gradient(135deg, #22c55e, #358351)",
-  color: "#022c22",
-  border: "none",
-  borderRadius: "12px",
-  fontWeight: 700,
-  fontSize: "1rem",
-  cursor: "pointer",
-  boxShadow: "0 8px 20px rgba(176, 240, 199, 0.35)",
-  transition: "all 0.3s ease",
-};

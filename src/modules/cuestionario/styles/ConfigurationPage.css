@@ -1,263 +1,258 @@
+/* ==========================================
+   PÁGINA DE CONFIGURACIÓN
+   ========================================== */
+
 .configuration-page {
+    padding: 30px;
 
-    padding:30px;
+    background: var(--bg-primary);
 
-    background:#f8fafc;
+    min-height: 100%;
 
-    min-height:100%;
+    box-sizing: border-box;
 
-    box-sizing:border-box;
-
+    color: var(--text-primary);
 }
 
 
-/* HEADER */
+/* ==========================================
+   HEADER
+   ========================================== */
 
 .configuration-header {
-
-    margin-bottom:30px;
-
+    margin-bottom: 30px;
 }
 
 .configuration-rubro {
+    color: var(--text-secondary);
 
-    color:#64748b;
-
-    font-size:.9rem;
-
-    font-weight:600;
-
+    font-size: .9rem;
+    font-weight: 600;
 }
 
 .configuration-header h1 {
+    margin: 6px 0;
 
-    margin:6px 0;
+    font-size: 1.8rem;
 
-    font-size:1.8rem;
-
+    color: var(--text-primary);
 }
 
 .configuration-header p {
+    margin: 0;
 
-    margin:0;
-
-    color:#64748b;
-
+    color: var(--text-secondary);
 }
 
 
-/* SECCIONES */
+/* ==========================================
+   SECCIONES
+   ========================================== */
 
 .configuration-section {
+    background: var(--bg-secondary);
 
-    background:white;
+    border: 1px solid var(--border-color);
 
-    border-radius:18px;
+    border-radius: 18px;
 
-    padding:24px;
+    padding: 24px;
 
-    margin-bottom:24px;
+    margin-bottom: 24px;
 
     box-shadow:
-        0 6px 20px rgba(0,0,0,.06);
+        0 6px 20px var(--shadow-color);
 
+    box-sizing: border-box;
 }
 
 .configuration-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
 
-    margin-top:0;
-
-    margin-bottom:20px;
-
+    color: var(--text-primary);
 }
 
 
-/* RESUMEN */
+/* ==========================================
+   RESUMEN
+   ========================================== */
 
 .configuration-summary {
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap:16px;
-
+    gap: 16px;
 }
-
 
 .configuration-stat {
+    padding: 20px;
 
-    padding:20px;
+    border-radius: 14px;
 
-    border-radius:14px;
+    background: var(--bg-tertiary);
 
-    background:#f8fafc;
-
+    border: 1px solid var(--border-color);
 }
-
 
 .configuration-stat span {
+    display: block;
 
-    display:block;
+    color: var(--text-secondary);
 
-    color:#64748b;
-
-    font-size:.85rem;
-
+    font-size: .85rem;
 }
-
 
 .configuration-stat strong {
+    display: block;
 
-    display:block;
+    margin-top: 8px;
 
-    margin-top:8px;
+    font-size: 1.7rem;
 
-    font-size:1.7rem;
-
+    color: var(--text-primary);
 }
 
 
-/* GRÁFICA */
+/* ==========================================
+   GRÁFICA
+   ========================================== */
 
 .configuration-chart-placeholder {
+    min-height: 220px;
 
-    min-height:220px;
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
+    border: 2px dashed var(--border-color);
 
-    border:2px dashed #e2e8f0;
+    border-radius: 14px;
 
-    border-radius:14px;
+    color: var(--text-secondary);
 
-    color:#64748b;
-
+    background: var(--bg-tertiary);
 }
 
 .configuration-chart-placeholder span {
-
-    font-size:40px;
-
+    font-size: 40px;
 }
 
 
-/* HEADER DE SECCIÓN */
+/* ==========================================
+   HEADER DE SECCIÓN
+   ========================================== */
 
 .configuration-section-header {
+    display: flex;
 
-    display:flex;
+    justify-content: space-between;
 
-    justify-content:space-between;
-
-    align-items:center;
-
+    align-items: center;
 }
 
 .configuration-section-header button {
+    padding: 8px 14px;
 
-    padding:8px 14px;
+    border: none;
 
-    border:none;
+    border-radius: 8px;
 
-    border-radius:8px;
+    background: var(--config-button-color-primary);
 
-    background:#334155;
+    color: var(--text-primary);
 
-    color:white;
+    cursor: pointer;
 
-    cursor:pointer;
+    transition: background .2s ease;
+}
 
+.configuration-section-header button:hover {
+    background: var(--config-button-color-secondary);
 }
 
 
-/* TABLA */
+/* ==========================================
+   TABLA
+   ========================================== */
 
 .configuration-table-wrapper {
-
-    overflow-x:auto;
-
+    overflow-x: auto;
 }
 
 .configuration-table-wrapper table {
+    width: 100%;
 
-    width:100%;
-
-    border-collapse:collapse;
-
+    border-collapse: collapse;
 }
 
 .configuration-table-wrapper th {
+    text-align: left;
 
-    text-align:left;
+    padding: 12px;
 
-    padding:12px;
+    color: var(--text-secondary);
 
-    color:#64748b;
+    font-size: .85rem;
 
-    font-size:.85rem;
-
-    border-bottom:1px solid #e2e8f0;
-
+    border-bottom: 1px solid var(--border-color);
 }
 
 .configuration-table-wrapper td {
+    padding: 14px 12px;
 
-    padding:14px 12px;
+    color: var(--text-primary);
 
-    border-bottom:1px solid #f1f5f9;
-
+    border-bottom: 1px solid var(--border-color);
 }
 
 
-/* ESTADOS */
+/* ==========================================
+   ESTADOS
+   ========================================== */
 
 .status {
+    display: inline-block;
 
-    display:inline-block;
+    padding: 5px 10px;
 
-    padding:5px 10px;
+    border-radius: 20px;
 
-    border-radius:20px;
+    font-size: .75rem;
 
-    font-size:.75rem;
-
-    font-weight:600;
-
+    font-weight: 600;
 }
 
 .status.completed {
-
-    background:#dcfce7;
-
-    color:#166534;
-
+    background: var(--success-bg);
+    color: var(--success-text);
 }
 
 .status.pending {
-
-    background:#fef3c7;
-
-    color:#92400e;
-
+    background: var(--warning-bg);
+    color: var(--warning-text);
 }
 
-/*estilo para grafica de participacion*/
+
 /* ==========================================
    GRÁFICA DE DONA
    ========================================== */
 
 .donut-chart-wrapper {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 40px;
+
     flex: 1;
 }
 
@@ -265,7 +260,6 @@
 /* Dona */
 
 .donut-chart {
-
     width: 190px;
     height: 190px;
 
@@ -274,21 +268,22 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     position: relative;
-
 }
 
 
 /* Agujero central */
 
 .donut-center {
-
     width: 115px;
     height: 115px;
 
-    background: #ffffff;
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
 
     border-radius: 50%;
 
@@ -297,46 +292,40 @@
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
 
+    justify-content: center;
 }
 
-
 .donut-center strong {
-
     font-size: 2rem;
 
     line-height: 1;
 
+    color: var(--text-primary);
 }
 
-
 .donut-center span {
-
-    color: #64748b;
+    color: var(--text-secondary);
 
     font-size: .8rem;
 
     margin-top: 5px;
-
 }
 
 
-/* Leyenda */
+/* ==========================================
+   LEYENDA
+   ========================================== */
 
 .donut-legend {
-
     display: flex;
 
     flex-direction: column;
 
     gap: 18px;
-
 }
 
-
 .donut-legend-item {
-
     display: grid;
 
     grid-template-columns:
@@ -349,68 +338,76 @@
     gap: 8px;
 
     min-width: 150px;
-
 }
 
-
 .legend-color {
-
     width: 12px;
     height: 12px;
 
     border-radius: 50%;
-
 }
-
 
 .legend-color.completed {
-
     background: #22c55e;
-
 }
-
 
 .legend-color.pending {
-
     background: #f59e0b;
-
 }
-
 
 .donut-legend-item span:not(.legend-color) {
-
-    color: #475569;
+    color: var(--text-secondary);
 
     font-size: .9rem;
-
 }
-
 
 .donut-legend-item strong {
-
     font-size: 1rem;
 
+    color: var(--text-primary);
 }
 
-/*Estilos para resultados de estadisticas*/
+
+/* ==========================================
+   ESTADÍSTICAS
+   ========================================== */
+
 .estadisticas-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 20px;
 }
 
 .estadistica-card {
-    background: white;
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+
     padding: 22px;
+
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 6px 18px var(--shadow-color);
 }
 
 .estadistica-card h3 {
     margin: 0 0 20px 0;
+
     font-size: 1rem;
+
     line-height: 1.4;
+
+    color: var(--text-primary);
 }
+
+
+/* ==========================================
+   OPCIONES DE ESTADÍSTICA
+   ========================================== */
 
 .estadistica-opcion {
     margin-bottom: 16px;
@@ -418,40 +415,66 @@
 
 .estadistica-opcion-header {
     display: flex;
+
     justify-content: space-between;
+
     margin-bottom: 6px;
 }
 
 .estadistica-opcion-header strong {
     font-weight: 700;
+
+    color: var(--text-primary);
 }
 
 .estadistica-bar {
     height: 10px;
-    background: #e2e8f0;
+
+    background: var(--bg-tertiary);
+
+    border: 1px solid var(--border-color);
+
     border-radius: 10px;
+
     overflow: hidden;
 }
 
 .estadistica-bar-fill {
     height: 100%;
-    background: #2563eb;
+
+    background: var(--accent-color);
+
     border-radius: 10px;
+
     transition: width .4s ease;
 }
 
 .estadistica-opcion small {
     display: block;
+
     margin-top: 5px;
-    color: #64748b;
+
+    color: var(--text-secondary);
 }
+
+
+/* ==========================================
+   ESTADOS DE CARGA
+   ========================================== */
 
 .configuration-loading,
 .configuration-empty {
     padding: 40px;
+
     text-align: center;
-    color: #64748b;
+
+    color: var(--text-secondary);
 }
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
 @media (max-width: 900px) {
 
@@ -459,4 +482,30 @@
         grid-template-columns: 1fr;
     }
 
+    .configuration-summary {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .configuration-page {
+        padding: 20px;
+    }
+
+    .configuration-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .configuration-section {
+        padding: 18px;
+    }
+
+    .donut-chart-wrapper {
+        flex-direction: column;
+
+        gap: 25px;
+    }
 }

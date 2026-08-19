@@ -1,0 +1,603 @@
+/* =========================================================
+   BODY PAGE
+========================================================= */
+
+.body-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 20px 25px 30px;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.body-page-title {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto 15px;
+    padding: 14px 18px;
+
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px var(--shadow-color);
+
+    box-sizing: border-box;
+}
+
+.body-page-title h3 {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   INFORMACIÓN SUPERIOR
+========================================================= */
+
+.body-page-info-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.body-page-info {
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 8px 5px;
+
+    box-sizing: border-box;
+}
+
+.body-page-info p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   MODELO 3D
+========================================================= */
+
+.body-page-canvas {
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTENEDOR DEL CANVAS 3D
+========================================================= */
+
+.body3d-container {
+      width: 100%;
+    max-width: 1400px;
+    height: 600px;
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+.body3d-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.body-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.65);
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+
+    animation: bodyOverlayFade .2s ease;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.body-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 420px;
+
+    max-height: 80vh;
+
+    padding: 28px;
+
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 16px;
+
+    color: var(--text-primary);
+
+    box-shadow:
+        0 20px 50px var(--shadow-color);
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    animation: bodyModalAppear .2s ease;
+}
+
+.body-modal h3 {
+    margin: 0;
+
+    padding-right: 25px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+.body-modal p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: var(--text-secondary);
+}
+
+.body-modal-subtitle {
+    font-size: 13px !important;
+
+    color: var(--text-muted) !important;
+
+    margin-bottom: 10px !important;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.body-modal-close {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.body-modal-close:hover {
+    background: var(--bg-tertiary);
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.body-question-input {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 9px;
+
+    background: var(--bg-tertiary);
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.body-question-input:hover {
+    border-color: var(--accent-color);
+}
+
+.body-question-input:focus {
+    background: var(--bg-secondary);
+
+    border-color: var(--accent-color);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, .14);
+}
+
+.body-question-input::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+select.body-question-input {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN DEL CUESTIONARIO
+========================================================= */
+
+.body-question-nav {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.body-question-btn {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--accent-color);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.body-question-btn:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px var(--shadow-color);
+}
+
+.body-question-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BOTÓN INFORMACIÓN MÓVIL
+========================================================= */
+
+.body-info-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--accent-color);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px var(--shadow-color);
+
+    z-index: 1000;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.body-info-button:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.body-loader-box {
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--text-primary);
+
+    box-shadow:
+        0 15px 40px var(--shadow-color);
+}
+
+.body-loader-box p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.body-spinner {
+    width: 32px;
+    height: 32px;
+
+    border: 4px solid var(--border-color);
+
+    border-top-color: var(--accent-color);
+
+    border-radius: 50%;
+
+    animation: bodySpinner .8s linear infinite;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes bodySpinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bodyOverlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bodyModalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .body-page {
+        padding: 15px;
+    }
+
+    .body-page-title {
+        padding: 13px 15px;
+    }
+
+    .body-page-title h3 {
+        font-size: 16px;
+    }
+
+    .body-page-info {
+        padding: 8px 2px;
+    }
+
+    /* -----------------------------------------
+       MODELO 3D EN MÓVIL
+    ----------------------------------------- */
+
+    .body-page-canvas {
+        width: 100%;
+    }
+
+    .body3d-container {
+        height: 560px;
+        min-height: 480px;
+    }
+
+    /* -----------------------------------------
+       MODAL
+    ----------------------------------------- */
+
+    .body-modal {
+        max-width: 100%;
+
+        padding: 24px;
+
+        border-radius: 14px;
+    }
+
+    /* -----------------------------------------
+       NAVEGACIÓN
+    ----------------------------------------- */
+
+    .body-question-nav {
+        justify-content: stretch;
+    }
+
+    .body-question-btn {
+        flex: 1;
+    }
+
+    /* -----------------------------------------
+       BOTÓN INFORMACIÓN
+    ----------------------------------------- */
+
+    .body-info-button {
+        right: 15px;
+        bottom: 15px;
+
+        width: 48px;
+        height: 48px;
+
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .body-page {
+        padding: 12px;
+    }
+
+    .body3d-container {
+        height: 520px;
+        min-height: 460px;
+    }
+
+    .body-modal {
+        padding: 20px;
+    }
+
+    .body-modal h3 {
+        font-size: 18px;
+    }
+
+    .body-question-input {
+        font-size: 13px;
+    }
+
+    .body-question-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}

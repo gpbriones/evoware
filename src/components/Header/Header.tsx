@@ -3,92 +3,70 @@ import { useLogout } from "../../services/GeneralLogoutService";
 import { useEffect, useState } from "react";
 import { resumenRequest } from "../../services/PersonalService";
 import type { ResumenResponse } from "../../services/PersonalService";
+import { useTheme } from "../../hooks/useTheme";
 
 const Header = () => {
-
     const { handleLogout } = useLogout();
-
     const [data, setData] = useState<ResumenResponse | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    //constante para tema
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
-
         const fetchResumen = async () => {
-
             try {
-
                 const access_token = localStorage.getItem("token") || "";
-
                 const response = await resumenRequest({
                     access_token
                 });
-
                 setData(response);
-
             } catch (error) {
-
                 console.error("Error obteniendo resumen:", error);
-
             }
 
         };
-
         fetchResumen();
-
     }, []);
 
     return (
         <header className="app-header">
 
             {/* Saludo */}
-
             <div className="header-welcome">
                 <span className="header-greeting">
                     Hola,
                 </span>
-
                 <span className="header-welcome-name">
                     {data?.nombre || "Usuario"}
                 </span>
-            </div>
+            </div>  
 
 
             {/* Acciones */}
-
             <div className="header-actions">
-
                 {/* Avatar */}
-
                 <div className="header-user-menu">
-
                     <button
                         className="header-avatar-button"
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-label="Opciones de usuario"
                     >
-
                         <div className="header-avatar">
                             {data?.nombre?.charAt(0).toUpperCase() || "U"}
                         </div>
-
                         <span className="header-arrow">
                             {menuOpen ? "▲" : "▼"}
                         </span>
-
                     </button>
 
 
                     {/* Menú del usuario */}
-
                     {menuOpen && (
-
                         <div className="header-dropdown">
-
                             <div className="dropdown-header">
                                 <div className="dropdown-avatar">
                                     {data?.nombre?.charAt(0).toUpperCase() || "U"}
                                 </div>
-
                                 <div>
                                     <strong>
                                         {data?.nombre || "Usuario"}
@@ -149,6 +127,24 @@ const Header = () => {
                             >
                                 <span>🔔</span>
                                 Notificaciones
+                            </button>
+
+                            <button
+                                className="dropdown-item"
+                                onClick={() => {
+                                    toggleTheme();
+                                    setMenuOpen(false);
+                                }}
+                            >
+                                <span>
+                                    {theme === "light" ? "🌙" : "☀️"}
+                                </span>
+
+                                <span>
+                                    {theme === "light"
+                                        ? "Modo oscuro"
+                                        : "Modo claro"}
+                                </span>
                             </button>
 
                         </div>

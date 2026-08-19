@@ -69,14 +69,15 @@
     height:32px;
     border:none;
     border-radius:50%;
-    background:var(--config-button-color);
+    background:var(--config-button-color-primary);
     cursor:pointer;
     transition:.2s;
     font-size:18 px;
+     color:var(--text-primary)
 }
 
 .sidebar-config-button:hover{
-    background:#f0e6e2;
+    background:var(--config-button-color-secondary);
     transform:rotate(30deg);
 
 }
@@ -116,53 +117,7 @@
     margin-bottom:8px;
 }
 
-/* botones de acciones */
 
-.card-actions {
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:20px;
-
-    flex-wrap:wrap;   /* permite bajar botones a otra línea */
-
-    width:100%;
-
-}
-
-
-.card-actions button {
-
-    border:none;
-
-    border-radius:12px;
-
-    padding:8px 14px;
-
-    background:#2563eb;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-weight:500;
-
-    transition:.2s ease;
-
-    flex:1 1 auto;  /* se adaptan al espacio disponible */
-
-    min-width:100px; /* evita botones demasiado pequeños */
-
-}
-
-
-.card-actions button:hover {
-    transform:translateY(-2px);
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.15);
-}
 
 
 /* ---------------- */
@@ -238,19 +193,21 @@
 }
 
 
-.btn-remove{
-    width:32px;
+.sidebar-btn-remove{
+     width:32px;
     height:32px;
     border:none;
-    border-radius:100%;
-    background:white;
+    border-radius:50%;
+    background:var(--config-button-color-primary);
     cursor:pointer;
     transition:.2s;
-    font-size:18px;
+    font-size:18 px;
+    color:var(--text-primary)
+   
 }
 
-.btn-remove:hover{
-    background:#f0e6e2;
+.sidebar-btn-remove:hover{
+    background:var(--config-button-color-secondary);
     transform:rotate(15deg);
 
 }

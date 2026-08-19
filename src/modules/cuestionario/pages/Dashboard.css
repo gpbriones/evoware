@@ -1,64 +1,95 @@
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .header {
-  height: 60px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* 🔥 magia */
-  padding: 0 20px;
+    height: 60px;
+
+    background: var(--bg-secondary);
+
+    border-bottom: 1px solid var(--border-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
 }
+
 
 /* IZQUIERDA */
+
 .header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
+
 
 /* LOGO */
+
 .logo {
-  font-weight: 600;
-  color: var(--text-h);
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-/* BOTÓN MODERNO */
+
+/* BOTÓN DE TEMA */
+
 .theme-btn {
-  border: none;
-  padding: 8px 14px;
-  border-radius: 999px; /* 🔥 pill shape */
-  background: var(--accent-bg);
-  color: var(--accent);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    border: none;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: var(--bg-tertiary);
+
+    color: var(--accent-color);
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
 }
 
-/* HOVER */
 .theme-btn:hover {
-  background: var(--accent);
-  color: white;
-  transform: scale(1.05);
- 
+    background: var(--accent-color);
+
+    color: white;
+
+    transform: scale(1.05);
 }
 
-/* CONTENEDOR PRINCIPAL */
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
 .dashboard {
-  display: flex;
-  /*flex-direction: column;*/
-  min-height: 100vh; /* 🔥 no bloquea contenido */
-   
+    display: flex;
+
+    min-height: 100vh;
+
+    background: var(--bg-primary);
 }
 
-/* CONTENIDO (debajo del header) */
+
+/* CONTENIDO */
+
 .content {
-  flex: 1;                 /* 🔥 ocupa el resto */
-  display: flex;
-  flex-direction: column;
-  overflow: auto;        /* 🔥 evita scroll */
- 
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: auto;
 }
 
-/*Estilos de cuestionario*/
 
 /* =========================================================
    CUESTIONARIO
@@ -66,10 +97,18 @@
 
 .cuestionario-page {
     width: 100%;
+
     min-height: 100%;
+
     padding: 25px;
+
     box-sizing: border-box;
+
+    background: var(--bg-primary);
+
+    color: var(--text-primary);
 }
+
 
 /* =========================================================
    INFORMACIÓN SUPERIOR
@@ -77,22 +116,34 @@
 
 .cuestionario-info {
     width: 100%;
+
     max-width: 900px;
+
     margin: 0 auto 20px auto;
+
     padding: 18px 22px;
 
-    background: rgba(255, 255, 255, 0.06);
-    border-left: 4px solid #3b82f6;
+    background: var(--bg-secondary);
+
+    border-left: 4px solid var(--accent-color);
+
     border-radius: 10px;
 
+    color: var(--text-primary);
+
     box-sizing: border-box;
+
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .cuestionario-info p {
     margin: 0;
+
     font-size: 13px;
+
     line-height: 1.6;
-    opacity: 0.75;
+
+    color: var(--text-secondary);
 }
 
 
@@ -102,15 +153,21 @@
 
 .cuestionario-card {
     width: 100%;
+
     max-width: 900px;
+
     margin: 0 auto 40px auto;
 
     padding: 30px;
 
-    background: white;
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
+
     border-radius: 18px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 10px 30px var(--shadow-color);
 
     box-sizing: border-box;
 }
@@ -124,18 +181,20 @@
     margin: 0 0 8px 0;
 
     font-size: 25px;
+
     font-weight: 700;
 
-    color: #1e293b;
+    color: var(--text-primary);
 }
 
 .cuestionario-description {
     margin: 0 0 28px 0;
 
     font-size: 13px;
+
     line-height: 1.6;
 
-    color: #64748b;
+    color: var(--text-secondary);
 }
 
 
@@ -147,9 +206,10 @@
     margin: 0 0 18px 0;
 
     font-size: 16px;
+
     font-weight: 600;
 
-    color: #334155;
+    color: var(--text-primary);
 }
 
 
@@ -160,7 +220,8 @@
 .cuestionario-form {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 18px 20px;
 }
@@ -172,7 +233,9 @@
 
 .form-field {
     display: flex;
+
     flex-direction: column;
+
     gap: 7px;
 }
 
@@ -182,8 +245,10 @@
 
 .form-label {
     font-size: 13px;
+
     font-weight: 600;
-    color: #475569;
+
+    color: var(--text-primary);
 }
 
 
@@ -196,12 +261,13 @@
 
     padding: 11px 13px;
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--border-color);
+
     border-radius: 9px;
 
-    background: #f8fafc;
+    background: var(--bg-tertiary);
 
-    color: #1e293b;
+    color: var(--text-primary);
 
     font-size: 14px;
 
@@ -216,18 +282,20 @@
 }
 
 .questionnaire-input:hover {
-    border-color: #94a3b8;
+    border-color: var(--accent-color);
 }
 
 .questionnaire-input:focus {
-    background: white;
-    border-color: #3b82f6;
+    background: var(--bg-secondary);
 
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+    border-color: var(--accent-color);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.14);
 }
 
 .questionnaire-input::placeholder {
-    color: #94a3b8;
+    color: var(--text-muted);
 }
 
 
@@ -237,25 +305,28 @@
 
 .molestias-section {
     margin-top: 30px;
+
     padding-top: 25px;
 
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-color);
 }
 
 .molestias-title {
     margin: 0 0 6px 0;
 
     font-size: 17px;
+
     font-weight: 700;
 
-    color: #1e293b;
+    color: var(--text-primary);
 }
 
 .molestias-description {
     margin: 0 0 18px 0;
 
     font-size: 13px;
-    color: #64748b;
+
+    color: var(--text-secondary);
 }
 
 
@@ -277,11 +348,13 @@
     padding: 12px 18px;
 
     border: 1px solid transparent;
+
     border-radius: 11px;
 
     cursor: pointer;
 
     font-size: 14px;
+
     font-weight: 600;
 
     transition:
@@ -298,26 +371,36 @@
     transform: translateY(0);
 }
 
+
+/* SI */
+
 .molestias-si {
-    background: #fff7ed;
-    border-color: #fed7aa;
-    color: #c2410c;
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-text);
 }
 
 .molestias-si:hover {
     background: #ffedd5;
-    box-shadow: 0 5px 15px rgba(194, 65, 12, 0.12);
+
+    box-shadow:
+        0 5px 15px rgba(194, 65, 12, 0.12);
 }
 
+
+/* NO */
+
 .molestias-no {
-    background: #f0fdf4;
-    border-color: #bbf7d0;
-    color: #15803d;
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
 }
 
 .molestias-no:hover {
     background: #dcfce7;
-    box-shadow: 0 5px 15px rgba(21, 128, 61, 0.12);
+
+    box-shadow:
+        0 5px 15px rgba(21, 128, 61, 0.12);
 }
 
 
@@ -329,24 +412,39 @@
     position: fixed;
 
     right: 20px;
+
     bottom: 20px;
 
     width: 50px;
+
     height: 50px;
 
     border: none;
+
     border-radius: 50%;
 
-    background: #3b82f6;
+    background: var(--accent-color);
+
     color: white;
 
     font-size: 21px;
 
     cursor: pointer;
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 8px 20px var(--shadow-color);
 
     z-index: 1000;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.info-button:hover {
+    background: var(--accent-hover);
+
+    transform: translateY(-2px);
 }
 
 
@@ -360,7 +458,9 @@
     inset: 0;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     padding: 20px;
@@ -376,18 +476,23 @@
     position: relative;
 
     width: 100%;
+
     max-width: 450px;
+
     max-height: 80vh;
 
     padding: 28px;
 
-    background: white;
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
 
     border-radius: 15px;
 
-    color: #1e293b;
+    color: var(--text-primary);
 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 20px 50px var(--shadow-color);
 
     overflow-y: auto;
 
@@ -398,35 +503,42 @@
     margin: 0 0 15px 0;
 
     font-size: 20px;
+
+    color: var(--text-primary);
 }
 
 .modal p {
     margin: 0 0 15px 0;
 
     font-size: 14px;
+
     line-height: 1.6;
 
     text-align: justify;
+
+    color: var(--text-secondary);
 }
 
 .modal-close {
     position: absolute;
 
     top: 10px;
+
     right: 12px;
 
     border: none;
+
     background: transparent;
 
     font-size: 20px;
 
-    color: #64748b;
+    color: var(--text-secondary);
 
     cursor: pointer;
 }
 
 .modal-close:hover {
-    color: #1e293b;
+    color: var(--text-primary);
 }
 
 
@@ -436,6 +548,7 @@
 
 .loader-box {
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -444,19 +557,23 @@
 
     padding: 25px;
 
-    background: white;
+    background: var(--bg-secondary);
+
+    border: 1px solid var(--border-color);
 
     border-radius: 14px;
 
-    color: #1e293b;
+    color: var(--text-primary);
 }
 
 .spinner {
     width: 32px;
+
     height: 32px;
 
-    border: 4px solid #e2e8f0;
-    border-top-color: #3b82f6;
+    border: 4px solid var(--border-color);
+
+    border-top-color: var(--accent-color);
 
     border-radius: 50%;
 
@@ -482,6 +599,7 @@
 
     .cuestionario-card {
         padding: 20px;
+
         border-radius: 14px;
     }
 
@@ -491,6 +609,7 @@
 
     .cuestionario-form {
         grid-template-columns: 1fr;
+
         gap: 15px;
     }
 

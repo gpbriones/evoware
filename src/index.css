@@ -10,7 +10,9 @@ body,
   width: 100%;
   height: 100%;
   font-family: system-ui, sans-serif;
-  background: var(--body-color_2);
+  /*background: var(--body-color_2);*/
+  background: var(--bg-tertiary);
+  
 }
 
 /*animación para loading*/

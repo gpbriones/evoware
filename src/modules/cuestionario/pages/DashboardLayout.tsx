@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-//g import "../../../styles/EvowareDashboard.css";
+import "../../../styles/EvowareDashboard.css";
 import  Header  from "../../../components/Header/Header";
 
 export default function DashboardLayout({ children }: any) {
@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }: any) {
     <div >
       <Header/>
       {/* HEADER */}
-      <header className="header">
+      <header className="header-cuestionario">
         
         
           <span className="logo">CUESTIONARIO NÓRDICO DE KUORINKA</span>

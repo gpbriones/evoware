@@ -1,4 +1,4 @@
-//g import "../styles/Sidebar.css";
+import "../styles/Sidebar.css";
 import type { DashboardItem } from "../DashboardService/DashboardService";
 import WidgetItem from "./WidgetItem";
 
@@ -35,9 +35,9 @@ export default function DashboardSidebar({
     return (
 
         <aside className="widget-sidebar">
-             <h2 className="widget-title">
-                Widgets
-            </h2>
+             <h1 className="widget-title">
+                Módulos
+            </h1>
             {
                 Object.values(rubros).map(grupo => (
                     <div

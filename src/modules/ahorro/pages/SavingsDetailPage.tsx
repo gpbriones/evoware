@@ -284,7 +284,7 @@ export default function PersonalGoal() {
 
 const sectionStyle = (isMobile: boolean): CSSProperties => ({
   minHeight: "100dvh",
-  background: "linear-gradient(135deg, #0f172a, #020617)",
+  background: "var(--bg-secondary)",
   padding: isMobile ? "2rem 1rem" : "3rem",
   color: "white",
 });

@@ -1,0 +1,104 @@
+:root {
+    /* Fondos */
+    -bg-primary: #f4f6f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f9fafb;
+
+    /* Texto */
+    --text-primary: #111827;
+    --text-secondary: rgb(2, 2, 2);
+    --text-muted: #9ca3af;
+
+    /* Bordes */
+    --border-color: #e5e7eb;
+
+    /* Principal */
+    --accent-color: #2563eb;
+    --accent-hover: #4338ca;
+
+    /* Estados */
+    --danger-color: #dc2626;
+    --danger-bg: #fff5f5;
+    --danger-border: #fecaca;
+
+    /* Sombras */
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    /*Botones de configuracion*/
+    --config-button-color-primary:transparent;
+    --config-button-color-secondary:rgb(168, 180, 199);;
+
+    /*botones de opciones*/
+    --option-button-color-primary: #426ba8;
+    --text_option-button-color:  #faf9f9;
+    --option-button-color-secondary: rgb(8, 94, 255);
+
+    --success-bg: #dcfce7;
+    --success-text: #166534;
+
+    --warning-bg: #fef3c7;
+    --warning-text: #92400e;
+
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+    --success-text: #15803d;
+
+    --warning-bg: #fff7ed;
+    --warning-border: #fed7aa;
+    --warning-text: #c2410c;
+}
+
+[data-theme="dark"] {
+
+    /* Fondos */
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+
+    /* Texto */
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+
+    /* Bordes */
+    --border-color: #374151;
+
+    /* Principal */
+    --accent-color: #2563eb;
+    --accent-hover: #a5b4fc;
+
+    /* Estados */
+    --danger-color: #f87171;
+    --danger-bg: #3f2020;
+    --danger-border: #7f1d1d;
+
+    /* Sombras */
+    --shadow-color: rgba(0, 0, 0, 0.35);
+
+    /*Botones de configuracion*/
+    --config-button-color-primary:#426ba8;
+    --config-button-color-secondary:rgb(168, 180, 199);;
+
+    /*Texto en botones*/
+    --option-button-color-primary: #426ba8;
+    --text_option-button-color:  rgb(250, 248, 248);
+    --option-button-color-secondary: rgb(8, 94, 255);
+
+    --success-bg: #14532d;
+    --success-text: #bbf7d0;
+
+    --warning-bg: #78350f;
+    --warning-text: #fde68a;
+
+
+    --success-bg: #123524;
+    --success-border: #166534;
+    --success-text: #86efac;
+
+    --warning-bg: #422006;
+    --warning-border: #9a3412;
+    --warning-text: #fdba74;
+
+
+
+}

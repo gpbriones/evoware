@@ -1,5 +1,5 @@
 import type { DashboardSummaryItem } from "../DashboardService/DashboardSummaryService";
-import "../styles/Sidebar.css";
+import "../styles/DashboardCardUI.css";
 
 interface Props {
     icon:string;
@@ -36,7 +36,7 @@ return (
                 {icon} {rubro}
             </span>
                 <h3>
-                    {title}<button
+                    {title} <button
                 className="sidebar-config-button"
                 onClick={()=>{
                     onConfig()
@@ -50,10 +50,10 @@ return (
         </div>
         
         <button
-            className="btn-remove"
+            className="sidebar-btn-remove"
             onClick={onRemove}
         >
-            ✕
+             ✕
         </button>
     </div>
 
@@ -89,7 +89,7 @@ return (
         </div>
     </div>
 
-    <div className="card-actions" style={{ width: "80%" }}>
+    <div className="card-actions" style={{ width: "100%" }}>
         {actions}
     </div>
 

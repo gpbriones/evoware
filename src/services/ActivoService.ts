@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { ActivoSearchRequest } from "../models/SearchRequest";
 import type { ActivoRequest } from "../models/ActivoRequest";
-import type { ReporteResponse } from "../models/ReporteResponse";
+//import type { ReporteResponse } from "../models/ReporteResponse";
 //import type { ActivoResponse } from "../models/ActivoResponse";
 
 const API_URL = "/api/activos";

@@ -7,11 +7,11 @@
 
     padding: 0 28px;
 
-    background: #ffffff;
+    background: var(--bg-secondary);
 
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border-color);
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px var(--shadow-color);
 
     box-sizing: border-box;
 }
@@ -24,18 +24,19 @@
 .header-welcome {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 10px;
 }
 
 .header-greeting {
-    font-size: 14px;
-    color: #6b7280;
+    font-size: 16px;
+    color: var(--text-secondary);
+    
 }
 
 .header-welcome-name {
-    font-size: 17px;
-    font-weight: 600;
-    color: #111827;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 
@@ -76,7 +77,7 @@
 }
 
 .header-avatar-button:hover {
-    background: #f3f4f6;
+    background: var(--bg-tertiary);
 }
 
 .header-avatar {
@@ -89,8 +90,8 @@
 
     border-radius: 50%;
 
-    background: #eef2ff;
-    color: #4f46e5;
+    background: var(--option-button-color-primary);
+    color: var(--text_option-button-color);
 
     font-size: 16px;
     font-weight: 700;
@@ -98,7 +99,7 @@
 
 .header-arrow {
     font-size: 8px;
-    color: #6b7280;
+    color: var(--text-secondary);
 }
 
 
@@ -116,20 +117,22 @@
 
     padding: 8px;
 
-    background: #ffffff;
+    background: var(--bg-secondary);
 
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.12),
-        0 4px 8px rgba(0, 0, 0, 0.05);
+        0 12px 30px var(--shadow-color),
+        0 4px 8px var(--shadow-color);
 
     z-index: 1000;
 }
 
 
-/* Información del usuario */
+/* =========================
+   INFORMACIÓN DEL USUARIO
+   ========================= */
 
 .dropdown-header {
     display: flex;
@@ -151,7 +154,7 @@
     border-radius: 50%;
 
     background: #eef2ff;
-    color: #4f46e5;
+    color: var(--accent-color);
 
     font-weight: 700;
 }
@@ -163,29 +166,33 @@
 
 .dropdown-header strong {
     font-size: 14px;
-    color: #111827;
+    color: var(--text-primary);
 }
 
 .dropdown-header span {
     margin-top: 2px;
 
     font-size: 12px;
-    color: #6b7280;
+    color: var(--text-secondary);
 }
 
 
-/* Separador */
+/* =========================
+   SEPARADOR
+   ========================= */
 
 .dropdown-divider {
     height: 1px;
 
     margin: 6px 4px;
 
-    background: #e5e7eb;
+    background: var(--border-color);
 }
 
 
-/* Opciones */
+/* =========================
+   OPCIONES
+   ========================= */
 
 .dropdown-item {
     width: 100%;
@@ -202,7 +209,7 @@
 
     background: transparent;
 
-    color: #374151;
+    color: var(--text-primary);
 
     font-size: 14px;
 
@@ -214,7 +221,7 @@
 }
 
 .dropdown-item:hover {
-    background: #f3f4f6;
+    background: var(--bg-tertiary);
 }
 
 
@@ -229,12 +236,12 @@
 
     padding: 8px 15px;
 
-    border: 1px solid #fecaca;
+    border: 1px solid var(--danger-border);
     border-radius: 8px;
 
-    background: #fff5f5;
+    background: var(--danger-bg);
 
-    color: #dc2626;
+    color: var(--danger-color);
 
     font-size: 14px;
     font-weight: 600;
@@ -245,7 +252,7 @@
 }
 
 .header-logout:hover {
-    background: #fee2e2;
-    border-color: #fca5a5;
-    color: #b91c1c;
+    background: var(--danger-bg);
+    border-color: var(--danger-color);
+    color: var(--danger-color);
 }
