@@ -1,259 +1,291 @@
-.sidebar{
-    width:240px;
-    background:white;
-    border-right:1px solid #ddd;
-    padding:20px;
+/* =========================================================
+   BOTÓN MÓVIL
+   ========================================================= */
+
+.mobile-sidebar-toggle {
+    display: none;
 }
 
-.sidebar ul{
-    list-style:none;
-    padding:0;
-}
 
-.sidebar li{
-    margin:15px 0;
-    cursor:pointer;
-}
+/* =========================================================
+   BOTÓN PARA CONTRAER RUBRO
+   ========================================================= */
 
-.sidebar-group{
-    margin-bottom:1.2rem;
-}
+.sidebar-rubro-toggle {
 
-.sidebar-group-title{
-    font-weight:bold;
-    font-size:.95rem;
-    margin-bottom:.5rem;
-    color:var(--text-primary);
-    border-bottom:1px solid var(--text-primary);
-    padding-bottom:.3rem;
-}
+    flex: 1;
 
-.widget-title {
-    font-weight: 700;
-    font-size: 1.33rem;
-    line-height: 1.3;
-    margin: 0 0 1rem;
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
     color: var(--text-primary);
-    border-bottom: 3px solid var(--text-primary);
-    padding-bottom: 0.75rem;
-}
 
-.sidebar-widget{
-    width:100%;
-    text-align:left;
-    margin-bottom:.4rem;
-}
+    cursor: pointer;
 
-/*Estilo para configuracion de boton de sidebar*/
-.sidebar-group {
-    width:100%;
+    text-align: left;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 
-.widget-sidebar .sidebar-group .sidebar-group-title {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
-}
-
-.sidebar-group-name {
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.sidebar-config-button{
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:50%;
-    background:var(--config-button-color);
-    cursor:pointer;
-    transition:.2s;
-    font-size:18 px;
-}
-
-.sidebar-config-button:hover{
-    background:#f0e6e2;
-    transform:rotate(30deg);
-
+.sidebar-rubro-toggle:hover {
+    color: var(--primary-color-fuerte);
 }
 
 
+.sidebar-rubro-arrow {
 
-.dashboard-card{
-    display:flex;
-    flex-direction:column;
-    height:100%;
-    border-radius:12px;
-    background:var(--bg-tertiary);
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
+    flex-shrink: 0;
 
-.dashboard-card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px;
-    border-bottom:1px solid var(--bg-tertiary);
-}
+    font-size: 10px;
 
-.dashboard-card-description{
-    padding:12px;
-    color:var(--text-secondary);
-}
-
-.dashboard-card-summary{
-    flex:1;
-    padding:12px;
-}
-
-.summary-row{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
-}
-
-/* botones de acciones */
-
-.card-actions {
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:20px;
-
-    flex-wrap:wrap;   /* permite bajar botones a otra línea */
-
-    width:100%;
-
+    color: var(--text-secondary);
 }
 
 
-.card-actions button {
+/* =========================================================
+   MÓVIL
+   ========================================================= */
 
-    border:none;
+@media (max-width: 768px) {
 
-    border-radius:12px;
+    .widget-sidebar {
 
-    padding:8px 14px;
+        width: 100%;
 
-    background:#2563eb;
+        min-width: 0;
 
-    color:white;
+        height: auto;
 
-    cursor:pointer;
+        position: relative;
 
-    font-weight:500;
+        top: 0;
 
-    transition:.2s ease;
+        padding: 0;
 
-    flex:1 1 auto;  /* se adaptan al espacio disponible */
+        border-right: none;
 
-    min-width:100px; /* evita botones demasiado pequeños */
+        border-bottom:
+            1px solid var(--border-color);
+
+        overflow: visible;
+    }
+
+
+    /* -----------------------------------------
+       BOTÓN PRINCIPAL
+       ----------------------------------------- */
+
+    .mobile-sidebar-toggle {
+
+        width: 100%;
+
+        height: 56px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 0 18px;
+
+        border: none;
+
+        background: var(--bg-primary);
+
+        color: var(--text-primary);
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        touch-action: manipulation;
+
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .mobile-sidebar-left {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+
+    .mobile-sidebar-icon {
+
+        font-size: 20px;
+
+        line-height: 1;
+    }
+
+
+    .mobile-sidebar-arrow {
+
+        font-size: 11px;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* -----------------------------------------
+       OCULTAR CONTENIDO
+       ----------------------------------------- */
+
+    .sidebar-header,
+    .sidebar-content {
+
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       MOSTRAR CUANDO ESTÁ ABIERTO
+       ----------------------------------------- */
+
+    .widget-sidebar.sidebar-open
+    .sidebar-header {
+
+        display: block;
+
+        padding:
+            4px 16px 12px;
+    }
+
+
+    .widget-sidebar.sidebar-open
+    .sidebar-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        width: 100%;
+
+        padding:
+            0 12px 14px;
+    }
+
+
+    /* -----------------------------------------
+       RUBRO
+       ----------------------------------------- */
+
+    .sidebar-group {
+
+        width: 100%;
+
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+
+    /* -----------------------------------------
+       HEADER RUBRO
+       ----------------------------------------- */
+
+    .sidebar-group-title {
+
+        min-height: 42px;
+
+        margin-bottom: 0;
+    }
+
+
+    /* -----------------------------------------
+       MÓDULOS
+       ----------------------------------------- */
+
+    .sidebar-widgets {
+
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 8px;
+
+        margin-top: 10px;
+    }
+
+
+    /* -----------------------------------------
+       BOTÓN CONFIGURACIÓN
+       ----------------------------------------- */
+
+    .sidebar-config-button {
+
+        width: 42px;
+
+        height: 42px;
+
+        min-width: 42px;
+
+        flex-shrink: 0;
+
+        font-size: 18px;
+    }
+
+
+    .sidebar-group-name {
+
+        font-size: 14px;
+    }
 
 }
 
 
-.card-actions button:hover {
-    transform:translateY(-2px);
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.15);
-}
+/* =========================================================
+   TELÉFONOS PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .mobile-sidebar-toggle {
+
+        height: 52px;
+
+        padding:
+            0 14px;
+    }
 
 
-/* ---------------- */
+    .widget-sidebar.sidebar-open
+    .sidebar-content {
 
-.modern-card {
-    background: var(--bg-secondary);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.08);
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-    height:100%;
-    overflow:hidden; /* evita que algo se salga */
-}
+        padding:
+            0 10px 12px;
+    }
 
 
-.modern-card:hover {
-    transform: translateY(-5px);
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.15);
-}
+    .sidebar-group {
 
-/**encabezado**/
-.card-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-
-.card-rubro {
-    color:#64748b;
-    font-size:.85rem;
-}
-
-
-.card-header h3 {
-    margin-top:5px;
-    font-size:1.25rem;
-    color:var(--text-primary);
-}
-
-
-/*indicadores de resumen*/
-.dashboard-summary {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-top:20px;
-}
-
-
-.summary-row {
-    background:var(--bg-tertiary);
-    border-radius:14px;
-    padding:12px;
-}
-
-
-.summary-row span {
-    display:block;
-    color:var(--text-muted);
-    font-size:.8rem;
-}
-
-
-.summary-row strong {
-
-    font-size:1.2rem;
+        padding: 10px;
+    }
 
 }
-
-
-.btn-remove{
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:100%;
-    background:white;
-    cursor:pointer;
-    transition:.2s;
-    font-size:18px;
-}
-
-.btn-remove:hover{
-    background:#f0e6e2;
-    transform:rotate(15deg);
-
-}
-
-
-

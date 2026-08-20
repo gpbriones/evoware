@@ -51,11 +51,9 @@ export default function BodyPage() {
 
     const navigate = useNavigate();
 
-    const BASE_URL_CUESTIONARIOS =
-        import.meta.env.VITE_API_CUESTIONARIOS_URL;
-
-    const token =
-        localStorage.getItem("token");
+    const BASE_URL_CUESTIONARIOS = import.meta.env.VITE_API_CUESTIONARIOS_URL;
+    const token = localStorage.getItem("token");
+    //const token_c = localStorage.getItem("token_c");
 
 
     /* =====================================================
@@ -99,20 +97,12 @@ export default function BodyPage() {
        SELECCIONAR ZONA
        ===================================================== */
 
-    const handleZona = async (
-        zona: ZonaSeleccion
-    ) => {
-
+    const handleZona = async ( zona: ZonaSeleccion ) => {
         if (loading) return;
-
         setLoading(true);
-
         try {
-
             setSelectedZona(zona);
-
             setStep(0);
-
             const response = await fetch(
                 `${BASE_URL_CUESTIONARIOS}/cuestionarios/getNordico/${zona.raw}`,
                 {
@@ -124,26 +114,20 @@ export default function BodyPage() {
 
                     body: JSON.stringify({
                         seccion: null,
-                        access_token: token
+                        access_token: token 
                     })
                 }
             );
-
             const data = await response.json();
-
             setPreguntas(data.listaDTO);
-
+            localStorage.setItem("section", data.seccion);
         } catch (error) {
-
             console.error(
                 "Error obteniendo cuestionario:",
                 error
             );
-
         } finally {
-
             setLoading(false);
-
         }
     };
 
@@ -153,76 +137,48 @@ export default function BodyPage() {
        ===================================================== */
 
     const finCuestionario = async () => {
-
         setLoading(true);
-
         try {
-
-            const token_c =
-                localStorage.getItem("token_c");
-
+            const token_c = localStorage.getItem("token_c");
             const response = await fetch(
                 `${BASE_URL_CUESTIONARIOS}/cuestionarios/${token_c}/finalizarNordico`,
                 {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify({
-                        seccion: null,
+                        seccion: selectedZona,
                         access_token: token
+                        
                     })
                 }
             );
 
             if (!response.ok) {
-
                 if (response.status === 410) {
-
-                    const errorText =
-                        await response.text();
-
+                    const errorText = await response.text();
                     console.log("410:", errorText);
-
-                    alert(
-                        "Registre al menos una zona donde presente molestias"
-                    );
-
+                    alert( "Registre al menos una zona donde presente molestias");
                     return;
                 }
             }
-
             await response.json();
-
-            setMensaje(
-                "Cuestionario guardado correctamente"
-            );
-
+            setMensaje("Cuestionario guardado correctamente");
             setShowPopup(true);
-
             localStorage.removeItem("token_c");
-
             setTimeout(() => {
-
                 setShowPopup(false);
-
                 navigate(
                     "/principalDashboard"
                 );
-
             }, 1000);
-
         } catch (error) {
-
             console.error(
                 "Error finalizando cuestionario:",
                 error
             );
-
         } finally {
-
             setLoading(false);
         }
     };
@@ -233,68 +189,53 @@ export default function BodyPage() {
        ===================================================== */
 
     const guardarRespuestas = async () => {
-
         try {
-
             const payload = {
-
+                access_token: token,
                 listaRespuestaDTO:
                     preguntas.map((p) => {
-
-                        const valor =
-                            respuestas[p.id];
-
+                        const valor = respuestas[p.id];
                         if (p.tipo === "TEXTO") {
-
                             return {
                                 id: p.id,
                                 respuestaTexto:
-                                    valor || ""
+                                valor || ""
                             };
                         }
-
                         if (p.tipo === "NUMERO") {
-
                             return {
                                 id: p.id,
-                                respuestaTexto:
-                                    String(valor || "")
+                                respuestaTexto: String(valor || "")
                             };
                         }
 
                         if (p.tipo === "OPCION") {
-
                             return {
                                 id: p.id,
                                 respuestaOpcion:
-                                    Number(valor)
+                                Number(valor)
                             };
                         }
 
                         return {
                             id: p.id
                         };
-                    })
+                    }),
+                  
             };
 
-            const token =
-                localStorage.getItem("token");
-
+            const token_c = localStorage.getItem("token_c");
             const response = await fetch(
-                `${BASE_URL_CUESTIONARIOS}/cuestionarios/${token}/saveNordico?seccion=${selectedZona?.raw}`,
+                `${BASE_URL_CUESTIONARIOS}/cuestionarios/${token_c}/saveNordico?seccion=${selectedZona?.raw}`,
                 {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify(payload)
                 }
             );
-
             if (!response.ok) {
-
                 if (response.status === 410) {
 
                     const errorText =

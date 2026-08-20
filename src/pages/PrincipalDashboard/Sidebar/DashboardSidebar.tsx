@@ -1,4 +1,6 @@
+import { useState } from "react";
 import "../styles/Sidebar.css";
+
 import type { DashboardItem } from "../DashboardService/DashboardService";
 import WidgetItem from "./WidgetItem";
 
@@ -12,19 +14,43 @@ export default function DashboardSidebar({
     onAddWidget
 }: Props) {
 
-    // Agrupar módulos por rubro
+    /* =====================================================
+       SIDEBAR PRINCIPAL
+       ===================================================== */
+
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+
+    /* =====================================================
+       RUBROS ABIERTOS
+       ===================================================== */
+
+    const [openRubros, setOpenRubros] =
+        useState<Record<number, boolean>>({});
+
+
+    /* =====================================================
+       AGRUPAR POR RUBRO
+       ===================================================== */
+
     const rubros = dashboardItems.reduce(
         (acc, item) => {
+
             const rubroId = item.rubro.id;
+
             if (!acc[rubroId]) {
+
                 acc[rubroId] = {
                     rubro: item.rubro,
                     modulos: []
                 };
+
             }
 
             acc[rubroId].modulos.push(item);
+
             return acc;
+
         },
         {} as Record<number, {
             rubro: DashboardItem["rubro"];
@@ -32,84 +58,189 @@ export default function DashboardSidebar({
         }>
     );
 
+
+    /* =====================================================
+       TOGGLE RUBRO
+       ===================================================== */
+
+    const toggleRubro = (rubroId: number) => {
+
+        setOpenRubros(prev => ({
+            ...prev,
+            [rubroId]: !prev[rubroId]
+        }));
+
+    };
+
+
     return (
 
-        <aside className="widget-sidebar">
-             <h1 className="widget-title">
-                Módulos
-            </h1>
-            {
-                Object.values(rubros).map(grupo => (
-                    <div
-                        key={grupo.rubro.id}
-                        className="sidebar-group"
-                    >
+        <aside
+            className={`widget-sidebar ${
+                sidebarOpen ? "sidebar-open" : ""
+            }`}
+        >
 
-                        <div className="sidebar-group-title"
-                         >
-                            <div className="sidebar-group-name">
-                                {grupo.rubro.icono ?? "📂"}{" "}
-                                {grupo.rubro.nombre}
-                            </div>
-                            <button
-                                className="sidebar-config-button"
-                                onClick={() => {
-                                    // Aquí irá la configuración del rubro
-                                     console.log(
-                                                    "Configurar:",
-                                                    grupo.rubro.rutaConfiguracion
-                                                );
-                                }}
-                                title="Configurar rubro"
+            {/* =================================================
+                BOTÓN MÓVIL
+               ================================================= */}
+
+            <button
+                type="button"
+                className="mobile-sidebar-toggle"
+                onClick={() =>
+                    setSidebarOpen(prev => !prev)
+                }
+            >
+
+                <span className="mobile-sidebar-left">
+
+                    <span className="mobile-sidebar-icon">
+                        ☰
+                    </span>
+
+                    <span>
+                        Módulos
+                    </span>
+
+                </span>
+
+                <span className="mobile-sidebar-arrow">
+                    {sidebarOpen ? "▲" : "▼"}
+                </span>
+
+            </button>
+
+
+            {/* =================================================
+                HEADER
+               ================================================= */}
+
+            <div className="sidebar-header">
+
+                <span className="sidebar-label">
+                    DASHBOARD
+                </span>
+
+                <h1 className="widget-title">
+                    Módulos
+                </h1>
+
+            </div>
+
+
+            {/* =================================================
+                CONTENIDO
+               ================================================= */}
+
+            <div className="sidebar-content">
+
+                {Object.values(rubros).map(grupo => {
+
+                    const isOpen =
+                        openRubros[grupo.rubro.id] ?? true;
+
+
+                    return (
+
+                        <div
+                            key={grupo.rubro.id}
+                            className="sidebar-group"
+                        >
+
+                            {/* =================================
+                                HEADER DEL RUBRO
+                               ================================= */}
+
+                            <div
+                                className="sidebar-group-title"
                             >
-                                ⚙
-                            </button>
-                        </div>
-
-                        {
-
-                            /*grupo.modulos.map(widget => (
 
                                 <button
-
-                                    key={widget.modulo.id}
-
-                                    className="sidebar-widget"
-
-                                    draggable
-
-                                    onDragStart={(e) => {
-
-                                        e.dataTransfer.setData(
-                                            "widget",
-                                            JSON.stringify(widget)
-                                        );
-
-                                    }}
-
+                                    type="button"
+                                    className="sidebar-rubro-toggle"
                                     onClick={() =>
-                                        onAddWidget(widget)
+                                        toggleRubro(
+                                            grupo.rubro.id
+                                        )
                                     }
-
                                 >
 
-                                    {widget.modulo.nombre}
+                                    <span className="sidebar-group-name">
+
+                                        <span className="sidebar-group-icon">
+                                            {grupo.rubro.icono ?? "📂"}
+                                        </span>
+
+                                        <span>
+                                            {grupo.rubro.nombre}
+                                        </span>
+
+                                    </span>
+
+                                    <span className="sidebar-rubro-arrow">
+                                        {isOpen ? "▲" : "▼"}
+                                    </span>
 
                                 </button>
 
-                            ))*/
-                           grupo.modulos.map(widget => (
-                                <WidgetItem
-                                    key={widget.modulo.id}
-                                    widget={widget}
-                                    onAddWidget={onAddWidget}
-                                />
-                            ))
-                        }
-                    </div>
-                ))
-            }
+
+                                {/* CONFIGURACIÓN */}
+
+                                <button
+                                    type="button"
+                                    className="sidebar-config-button"
+                                    onClick={() => {
+
+                                        console.log(
+                                            "Configurar:",
+                                            grupo.rubro
+                                                .rutaConfiguracion
+                                        );
+
+                                    }}
+                                    title="Configurar rubro"
+                                >
+                                    ⚙
+                                </button>
+
+                            </div>
+
+
+                            {/* =================================
+                                MÓDULOS
+                               ================================= */}
+
+                            {isOpen && (
+
+                                <div className="sidebar-widgets">
+
+                                    {grupo.modulos.map(widget => (
+
+                                        <WidgetItem
+                                            key={
+                                                widget.modulo.id
+                                            }
+                                            widget={widget}
+                                            onAddWidget={
+                                                onAddWidget
+                                            }
+                                        />
+
+                                    ))}
+
+                                </div>
+
+                            )}
+
+                        </div>
+
+                    );
+
+                })}
+
+            </div>
+
         </aside>
     );
-
 }

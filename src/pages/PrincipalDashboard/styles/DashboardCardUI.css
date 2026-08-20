@@ -1,216 +1,533 @@
-.sidebar{
-    width:240px;
-    background:white;
-    border-right:1px solid #ddd;
-    padding:20px;
-}
-
-.sidebar ul{
-    list-style:none;
-    padding:0;
-}
-
-.sidebar li{
-    margin:15px 0;
-    cursor:pointer;
-}
-
-.sidebar-group{
-    margin-bottom:1.2rem;
-}
-
-.sidebar-group-title{
-    font-weight:bold;
-    font-size:.95rem;
-    margin-bottom:.5rem;
-    color:var(--text-primary);
-    border-bottom:1px solid var(--text-primary);
-    padding-bottom:.3rem;
-}
-
-.widget-title {
-    font-weight: 700;
-    font-size: 1.33rem;
-    line-height: 1.3;
-    margin: 0 0 1rem;
-    color: var(--text-primary);
-    border-bottom: 3px solid var(--text-primary);
-    padding-bottom: 0.75rem;
-}
-
-.sidebar-widget{
-    width:100%;
-    text-align:left;
-    margin-bottom:.4rem;
-}
-
-/*Estilo para configuracion de boton de sidebar*/
-.sidebar-group {
-    width:100%;
-}
-
-
-.widget-sidebar .sidebar-group .sidebar-group-title {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
-}
-
-.sidebar-group-name {
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.sidebar-config-button{
-    width:32px;
-    height:32px;
-    border:none;
-    border-radius:50%;
-    background:var(--config-button-color-primary);
-    cursor:pointer;
-    transition:.2s;
-    font-size:18 px;
-     color:var(--text-primary)
-}
-
-.sidebar-config-button:hover{
-    background:var(--config-button-color-secondary);
-    transform:rotate(30deg);
-
-}
-
-
-
-.dashboard-card{
-    display:flex;
-    flex-direction:column;
-    height:100%;
-    border-radius:12px;
-    background:var(--bg-tertiary);
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
-
-.dashboard-card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px;
-    border-bottom:1px solid var(--bg-tertiary);
-}
-
-.dashboard-card-description{
-    padding:12px;
-    color:var(--text-secondary);
-}
-
-.dashboard-card-summary{
-    flex:1;
-    padding:12px;
-}
-
-.summary-row{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
-}
-
-
-
-
-/* ---------------- */
+/* =========================================
+   CARD
+========================================= */
 
 .modern-card {
-    background: var(--bg-secondary);
-    border-radius: 20px;
-    padding: 20px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg-primary);
+
+    border-radius: 16px;
+
+    padding: 16px;
+
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.08);
+        0 4px 15px rgba(0, 0, 0, 0.10);
+
+    overflow: hidden;
+
+    position: relative;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.modern-card .card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: 100%;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   INFORMACIÓN DEL HEADER
+========================================= */
+
+.card-header-info {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   RUBRO
+========================================= */
+
+.modern-card .card-rubro {
+
+    display: block;
+
+    font-size: 0.82rem;
+
+    color: var(--text-secondary);
+
+    line-height: 1.4;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================
+   TÍTULO + CONFIG
+========================================= */
+
+.card-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+
+.card-title-row h3 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 1.3;
+
+    color: var(--text-primary);
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   CONFIGURACIÓN
+========================================= */
+
+.sidebar-config-button {
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    padding: 0;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-    height:100%;
-    overflow:hidden; /* evita que algo se salga */
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
-.modern-card:hover {
-    transform: translateY(-5px);
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.15);
-}
+.sidebar-config-button:hover {
 
-/**encabezado**/
-.card-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    background: var(--bg-secondary);
+
+    color: var(--primary-color);
+
 }
 
 
-.card-rubro {
-    color:#64748b;
-    font-size:.85rem;
+.sidebar-config-button:active {
+
+    transform: scale(0.94);
+
 }
 
 
-.card-header h3 {
-    margin-top:5px;
-    font-size:1.25rem;
-    color:var(--text-primary);
+/* =========================================
+   ELIMINAR
+========================================= */
+
+.sidebar-btn-remove {
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    padding: 0;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
-/*indicadores de resumen*/
+.sidebar-btn-remove:hover {
+
+    background: rgba(239, 68, 68, 0.10);
+
+    color: #ef4444;
+
+}
+
+
+.sidebar-btn-remove:active {
+
+    transform: scale(0.94);
+
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.dashboard-card-description {
+
+    margin-top: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.modern-card .card-content {
+
+    flex: 1;
+
+    min-height: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px 0;
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
 .dashboard-summary {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-top:20px;
-}
 
+    width: 100%;
 
-.summary-row {
-    background:var(--bg-tertiary);
-    border-radius:14px;
-    padding:12px;
-}
+    display: flex;
 
+    flex-direction: column;
 
-.summary-row span {
-    display:block;
-    color:var(--text-muted);
-    font-size:.8rem;
-}
-
-
-.summary-row strong {
-
-    font-size:1.2rem;
+    gap: 7px;
 
 }
 
 
-.sidebar-btn-remove{
-     width:32px;
-    height:32px;
-    border:none;
-    border-radius:50%;
-    background:var(--config-button-color-primary);
-    cursor:pointer;
-    transition:.2s;
-    font-size:18 px;
-    color:var(--text-primary)
-   
+/* =========================================
+   FILA
+========================================= */
+
+.modern-summary {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 10px;
+
+    border-radius: 9px;
+
+    background: var(--bg-secondary);
+
+    min-width: 0;
 }
 
-.sidebar-btn-remove:hover{
-    background:var(--config-button-color-secondary);
-    transform:rotate(15deg);
+
+.modern-summary span {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+.modern-summary strong {
+
+    flex-shrink: 0;
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CARGANDO / VACÍO
+========================================= */
+
+.summary-loading,
+.summary-empty {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    text-align: center;
+
+    padding: 15px;
+}
+
+
+/* =========================================
+   ACCIONES
+========================================= */
+
+.modern-card .card-actions {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: auto;
+
+    padding-top: 8px;
+
+    flex-shrink: 0;
+}
+
+
+.modern-card .card-actions button {
+
+    flex: 1 1 auto;
+
+    min-height: 40px;
+
+    padding: 8px 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.modern-card .card-actions button:active {
+
+    transform: scale(0.97);
 
 }
 
 
+/* =========================================
+   TABLET
+========================================= */
 
+@media (max-width: 900px) {
+
+    .modern-card {
+
+        padding: 14px;
+
+    }
+
+    .card-title-row h3 {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+    .modern-card {
+
+        padding: 13px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .card-title-row h3 {
+
+        font-size: 15px;
+
+    }
+
+
+    .modern-card .card-rubro {
+
+        font-size: 12px;
+
+    }
+
+
+    .dashboard-card-description {
+
+        font-size: 12px;
+
+        line-height: 1.4;
+
+    }
+
+
+    .modern-summary {
+
+        padding: 7px 9px;
+
+    }
+
+
+    .modern-summary span {
+
+        font-size: 12px;
+
+    }
+
+
+    .modern-summary strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .modern-card .card-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .modern-card .card-actions button {
+
+        width: 100%;
+
+        flex: none;
+
+    }
+
+}
+
+
+/* =========================================
+   TELÉFONOS MUY PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .modern-card {
+
+        padding: 11px;
+
+    }
+
+
+    .sidebar-config-button,
+    .sidebar-btn-remove {
+
+        width: 36px;
+        height: 36px;
+
+    }
+
+
+    .card-title-row {
+
+        gap: 3px;
+
+    }
+
+}
